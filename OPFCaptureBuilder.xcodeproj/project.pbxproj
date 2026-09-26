@@ -52,34 +52,34 @@
 		isa = PBXFileReference;
 		lastKnownFileType = folder.assetcatalog;
 		path = Assets.xcassets;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000013 /* PBXFileReference */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = folder;
 		path = OPFSchemas;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA000000000000000000000F /* PBXFileSystemSynchronizedRootGroup */ = {
 		isa = PBXFileSystemSynchronizedRootGroup;
 		explicitFileTypes = {};
 		explicitFolders = ();
 		path = OPFCaptureBuilder;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000010 /* PBXFileSystemSynchronizedRootGroup */ = {
 		isa = PBXFileSystemSynchronizedRootGroup;
 		explicitFileTypes = {};
 		explicitFolders = ();
 		path = OPFCaptureBuilderTests;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000011 /* PBXFileSystemSynchronizedRootGroup */ = {
 		isa = PBXFileSystemSynchronizedRootGroup;
 		explicitFileTypes = {};
 		explicitFolders = ();
 		path = OPFCaptureBuilderUITests;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000017 /* PBXFrameworksBuildPhase */ = {
 		isa = PBXFrameworksBuildPhase;
@@ -108,7 +108,7 @@
 					FA0000000000000000000004 /* Resources */,
 					FA0000000000000000000003 /* Products */,
 				);
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000004 /* PBXGroup */ = {
 		isa = PBXGroup;
@@ -117,7 +117,7 @@
 					FA0000000000000000000013 /* OPFSchemas */,
 				);
 		path = Resources;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000003 /* PBXGroup */ = {
 		isa = PBXGroup;
@@ -127,7 +127,7 @@
 					FA000000000000000000000E /* OPFCaptureBuilderUITests.xctest */,
 				);
 		name = Products;
-		sourceTree = <group>;
+		sourceTree = "<group>";
 	};
 	FA0000000000000000000009 /* PBXNativeTarget */ = {
 		isa = PBXNativeTarget;

@@ -8,6 +8,7 @@ lets Xcode auto-discover every Swift file in the source folders, which removes t
 common class of project.pbxproj corruption (hand-written PBXFileReference/PBXBuildFile bookkeeping).
 """
 import os
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUNDLE_ID = "com.opfcapturebuilder.photogrammetry"
@@ -175,12 +176,12 @@ def main():
     add(FR_ASSETS, "PBXFileReference", [
         ("lastKnownFileType", "folder.assetcatalog"),
         ("path", "Assets.xcassets"),
-        ("sourceTree", "<group>"),
+        ("sourceTree", '"<group>"'),
     ])
     add(FR_SCHEMAS, "PBXFileReference", [
         ("lastKnownFileType", "folder"),
         ("path", "OPFSchemas"),
-        ("sourceTree", "<group>"),
+        ("sourceTree", '"<group>"'),
     ])
 
     # ----- PBXFileSystemSynchronizedRootGroup -----
@@ -191,7 +192,7 @@ def main():
             ("explicitFileTypes", "{}"),
             ("explicitFolders", "()"),
             ("path", name),
-            ("sourceTree", "<group>"),
+            ("sourceTree", '"<group>"'),
         ])
 
     # ----- PBXFrameworksBuildPhase -----
@@ -218,20 +219,20 @@ def main():
          + SYNC_UITEST + " /* OPFCaptureBuilderUITests */,\n\t\t\t\t"
          + RES_GROUP + " /* Resources */,\n\t\t\t\t"
          + PRODUCTS_GROUP + " /* Products */,\n\t\t\t)"),
-        ("sourceTree", "<group>"),
+        ("sourceTree", '"<group>"'),
     ])
     add(RES_GROUP, "PBXGroup", [
         ("children", "(\n\t\t\t\t" + FR_ASSETS + " /* Assets.xcassets */,\n\t\t\t\t"
          + FR_SCHEMAS + " /* OPFSchemas */,\n\t\t\t)"),
         ("path", "Resources"),
-        ("sourceTree", "<group>"),
+        ("sourceTree", '"<group>"'),
     ])
     add(PRODUCTS_GROUP, "PBXGroup", [
         ("children", "(\n\t\t\t\t" + PROD_APP + " /* OPFCaptureBuilder.app */,\n\t\t\t\t"
          + PROD_UTEST + " /* OPFCaptureBuilderTests.xctest */,\n\t\t\t\t"
          + PROD_UITEST + " /* OPFCaptureBuilderUITests.xctest */,\n\t\t\t)"),
         ("name", "Products"),
-        ("sourceTree", "<group>"),
+        ("sourceTree", '"<group>"'),
     ])
 
     # ----- PBXNativeTarget -----
@@ -449,9 +450,24 @@ def main():
 
     out = header + body + footer
     os.makedirs(os.path.join(ROOT, "OPFCaptureBuilder.xcodeproj"), exist_ok=True)
-    with open(os.path.join(ROOT, "OPFCaptureBuilder.xcodeproj", "project.pbxproj"), "w") as f:
+    project_path = os.path.join(ROOT, "OPFCaptureBuilder.xcodeproj", "project.pbxproj")
+    with open(project_path, "w") as f:
         f.write(out)
-    print("Wrote project.pbxproj (%d bytes, %d objects)" % (len(out), ids.n))
+
+    # Self-check: the file must parse with Xcode's OpenStep plist grammar. This catches
+    # values that contain characters which are illegal in an unquoted string (for example
+    # `<` in `sourceTree = "<group>"`), which would make Xcode report the project as damaged.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import openstep_plist
+
+    try:
+        document = openstep_plist.parse_file(__import__("pathlib").Path(project_path))
+        assert document["objectVersion"] == "77", "objectVersion missing from generated project"
+    except Exception as error:  # noqa: BLE001
+        raise SystemExit(f"FATAL: generated project.pbxproj does not parse: {error}")
+
+    print("Wrote project.pbxproj (%d bytes, %d objects) — OpenStep parse check passed"
+          % (len(out), ids.n))
 
 
 if __name__ == "__main__":

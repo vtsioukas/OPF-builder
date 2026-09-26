@@ -38,6 +38,21 @@ def main() -> int:
     text = PBXPROJ.read_text()
     object_id = re.compile(r"\b([0-9A-F]{24})\b")
 
+    # 0. The file must parse with Xcode's OpenStep plist grammar. An unquoted string may
+    #    only contain [A-Za-z0-9_$./-]; a stray '<', '>' or ':' outside quotes makes Xcode
+    #    report "the project is damaged and cannot be opened due to a parse error".
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import openstep_plist
+
+    try:
+        document = openstep_plist.parse_file(PBXPROJ)
+        check(document.get("objectVersion") == "77", "objectVersion should be 77")
+        check("objects" in document, "the parsed project has no objects dictionary")
+        check("rootObject" in document, "the parsed project has no rootObject")
+    except Exception as error:  # noqa: BLE001
+        check(False, f"project.pbxproj does not parse: {error}")
+        document = {}
+
     # 1. Every 24-char hex id that starts an object definition.
     definitions = re.findall(r"^\t+([0-9A-F]{24}) /\* .* \*/ = \{", text, re.MULTILINE)
     check(len(definitions) > 0, "no object definitions found in project.pbxproj")
