@@ -17,15 +17,18 @@ final class SensorRecorder: NSObject, ObservableObject {
     @Published private(set) var latestLocation: CLLocation?
     @Published private(set) var latestAttitude: DeviceAttitudeRecord?
     @Published private(set) var lastLocationError: String?
-    @Published private(set) var motionAvailable: Bool
+    @Published private(set) var motionAvailable = false
 
     private let manager = CLLocationManager()
-    private let motionManager = CMMotionManager()
+    /// Created lazily, on first use. CoreMotion has no cost when it is never touched, and
+    /// this keeps the framework out of the launch path for users who never capture. It also
+    /// means the (harmless but noisy) `com.apple.CoreMotion.plist` sandbox log line from
+    /// Apple's framework only appears once the user actually opens the capture screen.
+    private var motionManager: CMMotionManager?
     private let attitudeQueue = OperationQueue()
 
     override init() {
         authorizationStatus = manager.authorizationStatus
-        motionAvailable = motionManager.isDeviceMotionAvailable
         super.init()
         manager.delegate = self
         // Foreground only: no `allowsBackgroundLocationUpdates`, no always-authorization.
@@ -83,9 +86,14 @@ final class SensorRecorder: NSObject, ObservableObject {
     // MARK: - Motion
 
     func startMotionUpdates() {
-        guard motionManager.isDeviceMotionAvailable else { return }
-        motionManager.deviceMotionUpdateInterval = 1.0 / 25.0
-        motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: attitudeQueue) { [weak self] motion, _ in
+        let manager = motionManagerInstance()
+        guard manager.isDeviceMotionAvailable else {
+            motionAvailable = false
+            return
+        }
+        motionAvailable = true
+        manager.deviceMotionUpdateInterval = 1.0 / 25.0
+        manager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: attitudeQueue) { [weak self] motion, _ in
             guard let self, let motion else { return }
             let q = motion.attitude.quaternion
             let record = DeviceAttitudeRecord(
@@ -100,11 +108,20 @@ final class SensorRecorder: NSObject, ObservableObject {
     }
 
     func stopMotionUpdates() {
-        guard motionManager.isDeviceMotionActive else { return }
-        motionManager.stopDeviceMotionUpdates()
+        guard let manager = motionManager, manager.isDeviceMotionActive else { return }
+        manager.stopDeviceMotionUpdates()
     }
 
     func currentAttitude() -> DeviceAttitudeRecord? { latestAttitude }
+
+    /// The single CoreMotion entry point. This is the only place a `CMMotionManager` is
+    /// created and queried, and it is called only from the capture screen.
+    private func motionManagerInstance() -> CMMotionManager {
+        if let motionManager { return motionManager }
+        let manager = CMMotionManager()
+        motionManager = manager
+        return manager
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
