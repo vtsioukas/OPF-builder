@@ -1,0 +1,313 @@
+{
+  "captures": [
+    {
+      "cameras": [
+        {
+          "id": 5330502922221465966,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.5196535,
+          6.6322734,
+          375.0
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 3953601855761178744,
+      "reference_camera_id": 5330502922221465966,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.000Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 6402048364153287127,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.519713499999995,
+          6.6322944,
+          375.4
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 2687088097536357506,
+      "reference_camera_id": 6402048364153287127,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.001Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 3580114467060225768,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.5197735,
+          6.6323153999999995,
+          375.8
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 7551044758754767301,
+      "reference_camera_id": 3580114467060225768,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.002Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 4935732033301232809,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.5198335,
+          6.6323364,
+          376.2
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 3193210149225795412,
+      "reference_camera_id": 4935732033301232809,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.003Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 8755832396397070746,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.519893499999995,
+          6.6323574,
+          376.6
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 9210229556996346996,
+      "reference_camera_id": 8755832396397070746,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.004Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 6198811246650336387,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.5199535,
+          6.6323783999999995,
+          377.0
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 6826303470514173562,
+      "reference_camera_id": 6198811246650336387,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.005Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 1070822100168833364,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.5200135,
+          6.6323994,
+          377.4
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 5375979351408331826,
+      "reference_camera_id": 1070822100168833364,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.006Z"
+    },
+    {
+      "cameras": [
+        {
+          "id": 6176262832660158597,
+          "model_source": "generic_from_exif",
+          "pixel_range": {
+            "max": 255,
+            "min": 0
+          },
+          "pixel_type": "uint8",
+          "sensor_id": 7952478507512893956
+        }
+      ],
+      "geolocation": {
+        "coordinates": [
+          46.520073499999995,
+          6.6324204,
+          377.8
+        ],
+        "crs": {
+          "definition": "EPSG:4326"
+        },
+        "sigmas": [
+          3.0,
+          3.0,
+          5.0
+        ]
+      },
+      "id": 3233461095922049996,
+      "reference_camera_id": 6176262832660158597,
+      "rig_model_source": "not_applicable",
+      "time": "2023-11-14T22:13:20.007Z"
+    }
+  ],
+  "format": "application/opf-input-cameras+json",
+  "sensors": [
+    {
+      "bands": [
+        {
+          "name": "Red",
+          "weight": 0.2126
+        },
+        {
+          "name": "Green",
+          "weight": 0.7152
+        },
+        {
+          "name": "Blue",
+          "weight": 0.0722
+        }
+      ],
+      "id": 7952478507512893956,
+      "image_size_px": [
+        1600,
+        1200
+      ],
+      "internals": {
+        "focal_length_px": 1155.5555555555557,
+        "principal_point_px": [
+          800.0,
+          600.0
+        ],
+        "radial_distortion": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tangential_distortion": [
+          0.0,
+          0.0
+        ],
+        "type": "perspective"
+      },
+      "name": "Synthetic_SampleCam_1.0_26.0_1600x1200",
+      "pixel_size_um": 22.5,
+      "shutter_type": "rolling"
+    }
+  ],
+  "version": "1.0"
+}

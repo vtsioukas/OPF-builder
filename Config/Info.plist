@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>OPF Capture Builder</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Automatic</string>
+	<key>NSCameraUsageDescription</key>
+	<string>OPF Capture Builder uses the camera to capture overlapping photographs for photogrammetry. Photographs are stored only on this device until you choose to export them.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>OPF Capture Builder imports photographs you select from your photo library so they can be included in an OPF project. Imported copies are stored only on this device.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>OPF Capture Builder can save exported photographs back to your photo library when you explicitly request it.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>OPF Capture Builder records the location of each capture so exported OPF projects can be georeferenced. Location is stored only on this device and is never uploaded. Background location is not used.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>OPF Capture Builder reads device attitude while you capture photographs. This is recorded as device attitude metadata and is clearly distinguished from photogrammetric camera orientation.</string>
+</dict>
+</plist>

@@ -1,0 +1,26 @@
+# macOS / Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Xcode project user state (scheme/project are committed)
+OPFCaptureBuilder.xcodeproj/project.xcworkspace/xcuserdata/
+OPFCaptureBuilder.xcodeproj/xcuserdata/
+
+# Python harness
+__pycache__/
+*.pyc
+.venv/

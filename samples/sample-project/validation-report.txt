@@ -1,0 +1,4 @@
+OPF Capture Builder — validation report (reference harness)
+Checks executed: 227
+Result: PASS
+Validated against the official OPF JSON schemas (opf-spec).

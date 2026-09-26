@@ -1,0 +1,44 @@
+{
+  "cameras": [
+    {
+      "id": 5330502922221465966,
+      "uri": "images/SAMPLE_0001.jpg"
+    },
+    {
+      "id": 6402048364153287127,
+      "uri": "images/SAMPLE_0002.jpg"
+    },
+    {
+      "id": 3580114467060225768,
+      "uri": "images/SAMPLE_0003.jpg"
+    },
+    {
+      "id": 4935732033301232809,
+      "uri": "images/SAMPLE_0004.jpg"
+    },
+    {
+      "id": 8755832396397070746,
+      "uri": "images/SAMPLE_0005.jpg"
+    },
+    {
+      "id": 6198811246650336387,
+      "uri": "images/SAMPLE_0006.jpg"
+    },
+    {
+      "id": 1070822100168833364,
+      "uri": "images/SAMPLE_0007.jpg"
+    },
+    {
+      "id": 6176262832660158597,
+      "uri": "images/SAMPLE_0008.jpg"
+    }
+  ],
+  "format": "application/opf-camera-list+json",
+  "uid_generator": {
+    "name": "fnv1a64_image_content",
+    "scope": "global",
+    "vendor": "opfcapturebuilder",
+    "version": 1
+  },
+  "version": "1.0"
+}
