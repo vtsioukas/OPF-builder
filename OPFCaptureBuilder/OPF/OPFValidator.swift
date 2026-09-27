@@ -254,14 +254,14 @@ enum OPFValidator {
             var identifier = ""
             if case let .string(id)? = object["id"] { identifier = id }
             if identifier.isEmpty {
-                add(.error, "item_missing_id", "A project item has no id.", document: documentSet.project.relativePath)
+                add(.error, "item_missing_id", "A project item has no id.", documentSet.project.relativePath)
                 continue
             }
             if !OPFIdentifier.isValidUUIDString(identifier) {
-                add(.error, "invalid_uuid", "Project item id \"\(identifier)\" is not a lower-case UUID.", document: documentSet.project.relativePath)
+                add(.error, "invalid_uuid", "Project item id \"\(identifier)\" is not a lower-case UUID.", documentSet.project.relativePath)
             }
             if !itemIDs.insert(identifier).inserted {
-                add(.error, "duplicate_item_id", "Project item id \(identifier) is duplicated.", document: documentSet.project.relativePath)
+                add(.error, "duplicate_item_id", "Project item id \(identifier) is duplicated.", documentSet.project.relativePath)
             }
             itemTypesByID[identifier] = type
 
@@ -276,7 +276,7 @@ enum OPFValidator {
                 if let expected, format != expected {
                     add(.error, "resource_format_mismatch",
                         "Item type \(type) must reference a resource of format \(expected), found \(format).",
-                        document: documentSet.project.relativePath)
+                        documentSet.project.relativePath)
                 }
             }
         }
@@ -305,7 +305,7 @@ enum OPFValidator {
                         if let sourceType = itemTypesByID[sourceID] {
                             providedTypes.insert(sourceType)
                         } else {
-                            add(.error, "dangling_source", "Item \(type) references source \(sourceID), which does not exist in this project.", document: documentSet.project.relativePath)
+                            add(.error, "dangling_source", "Item \(type) references source \(sourceID), which does not exist in this project.", documentSet.project.relativePath)
                         }
                     }
                 }
@@ -313,7 +313,7 @@ enum OPFValidator {
             for needed in required where !providedTypes.contains(needed) {
                 add(.error, "missing_required_source",
                     "Item type \(type) requires a source of type \(needed).",
-                    document: documentSet.project.relativePath)
+                    documentSet.project.relativePath)
             }
         }
     }
@@ -352,11 +352,11 @@ enum OPFValidator {
         resourceExists: (String) -> Bool
     ) {
         if !isSafeRelativeURI(uri) {
-            add(.error, "unsafe_uri", "Resource URI \"\(uri)\" is not a safe relative path.", document: document)
+            add(.error, "unsafe_uri", "Resource URI \"\(uri)\" is not a safe relative path.", document)
             return
         }
         if !resourceExists(uri) {
-            add(.error, "missing_resource", "The referenced resource \"\(uri)\" does not exist.", document: document)
+            add(.error, "missing_resource", "The referenced resource \"\(uri)\" does not exist.", document)
         }
     }
 }

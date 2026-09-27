@@ -110,11 +110,20 @@ enum OPFWriter {
         var sensorOrder: [String] = []
         var sensorBySignature: [String: OPFSensorEntry] = [:]
         var sensorContent: [UInt64: SensorContent] = [:]
+        var usedSensorIDs = Set<UInt64>()
 
         for image in images {
             let signature = image.sensorSignature
             if sensorBySignature[signature] == nil {
-                let sensor = makeSensor(project: project, image: image, signature: signature)
+                var sensor = makeSensor(project: project, image: image, signature: signature)
+                var sensorID = sensor.id
+                var attempt = 0
+                while usedSensorIDs.contains(sensorID) {
+                    attempt += 1
+                    sensorID = FNV1a64.hash(Data("\(signature)#\(attempt)".utf8)) & OPFUID.usableBits
+                }
+                sensor.id = sensorID
+                usedSensorIDs.insert(sensorID)
                 sensorBySignature[signature] = sensor
                 sensorOrder.append(signature)
             }
@@ -130,6 +139,7 @@ enum OPFWriter {
 
         // --- captures --------------------------------------------------------
         var captures: [OPFCaptureEntry] = []
+        var usedCaptureIDs = Set<UInt64>()
         for image in images {
             guard let cameraID = cameraIDByFileName[image.fileName] else { continue }
             let sensor = sensorBySignature[image.sensorSignature]
@@ -158,8 +168,16 @@ enum OPFWriter {
             }
 
             let time = image.captureTime ?? image.addedAt
+            let timestamp = OPFDateFormat.iso8601(time)
+            var captureID = OPFUID.captureID(cameraID: cameraID, iso8601Time: timestamp)
+            var attempt = 0
+            while usedCaptureIDs.contains(captureID) {
+                attempt += 1
+                captureID = FNV1a64.hash(Data("\(cameraID)#\(timestamp)#\(attempt)".utf8)) & OPFUID.usableBits
+            }
+            usedCaptureIDs.insert(captureID)
             let capture = OPFCaptureEntry(
-                id: OPFUID.captureID(cameraID: cameraID, iso8601Time: OPFDateFormat.iso8601(time)),
+                id: captureID,
                 referenceCameraID: cameraID,
                 cameras: [entry],
                 rigModelSource: "not_applicable",

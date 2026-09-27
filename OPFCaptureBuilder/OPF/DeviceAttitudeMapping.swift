@@ -87,7 +87,12 @@ enum DeviceAttitudeMapping {
         guard raw.vector.x.isFinite, raw.vector.y.isFinite,
               raw.vector.z.isFinite, raw.vector.w.isFinite else { return nil }
         let normalized = simd_normalize(raw)
-        let mounted = simd_double3x3(cameraToDevice) * simd_double3x3(normalized)
+        let cameraRotation = simd_double3x3([
+            SIMD3(cameraToDevice.columns.0.x, cameraToDevice.columns.0.y, cameraToDevice.columns.0.z),
+            SIMD3(cameraToDevice.columns.1.x, cameraToDevice.columns.1.y, cameraToDevice.columns.1.z),
+            SIMD3(cameraToDevice.columns.2.x, cameraToDevice.columns.2.y, cameraToDevice.columns.2.z)
+        ])
+        let mounted = cameraRotation * simd_double3x3(normalized)
         let euler = eulerZYX(from: simd_quatd(mounted))
         return (degrees(euler.yaw), degrees(euler.pitch), degrees(euler.roll))
     }

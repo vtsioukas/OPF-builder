@@ -100,6 +100,7 @@ enum SampleProjectFactory {
         return project
     }
 
+    @MainActor
     private static func uniqueSampleName(store: ProjectStore) -> String {
         var candidate = sampleProjectName
         var index = 2

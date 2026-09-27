@@ -62,10 +62,10 @@ and **throws** on non-finite numbers.
 
 ### UID strategy (one for the whole project)
 
-`FNV-1a 64` of the raw image bytes, masked to 63 bits so every value fits in
-`Int64.positive` (and therefore trivially in `uid64`). Sensors hash their identity
-signature; captures hash `cameraID + ISO 8601 time`. The same routine is used by the
-importer and the writer, and collisions are resolved deterministically.
+`FNV-1a 64` of the raw image bytes, masked to signed Int32 so it remains valid `uid64`
+while supporting consumers that parse IDs as 32-bit integers. Sensors hash their identity
+signature; captures hash `cameraID + ISO 8601 time`. IDs use project scope, and collisions
+are resolved deterministically within each exported project.
 
 ### Sensor data handling
 

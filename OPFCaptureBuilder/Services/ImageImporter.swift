@@ -48,7 +48,7 @@ enum ImageImporter {
             }
         }
 
-        let fileName = try store.storeImageData(storedData, fileName: generatedFileName(extension: storedExtension), in: project)
+        let fileName = try await store.storeImageData(storedData, fileName: generatedFileName(extension: storedExtension), in: project)
 
         let record = makeRecord(
             fileName: fileName,
@@ -75,7 +75,7 @@ enum ImageImporter {
         let exif = EXIFReader.read(data: data)
 
         var storedData = data
-        var storedExtension = fileExtension(forUTI: exif?.utTypeIdentifier) ?? "jpg"
+        var storedExtension = fileExtension(forUTI: exif?.utTypeIdentifier ?? "public.jpeg") ?? "jpg"
         var transcodeNotice: String?
         var pixelsUnmodified = true
 
@@ -88,7 +88,7 @@ enum ImageImporter {
             }
         }
 
-        let fileName = try store.storeImageData(storedData, fileName: generatedFileName(extension: storedExtension), in: project)
+        let fileName = try await store.storeImageData(storedData, fileName: generatedFileName(extension: storedExtension), in: project)
 
         var record = makeRecord(
             fileName: fileName,

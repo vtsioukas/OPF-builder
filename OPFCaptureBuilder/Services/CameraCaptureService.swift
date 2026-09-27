@@ -97,27 +97,29 @@ final class CameraCaptureService: NSObject, ObservableObject {
         }
 
         session.beginConfiguration()
-        defer { session.commitConfiguration() }
+        do {
+            defer { session.commitConfiguration() }
 
-        if session.canSetSessionPreset(.photo) {
-            session.sessionPreset = .photo
-        }
+            if session.canSetSessionPreset(.photo) {
+                session.sessionPreset = .photo
+            }
 
-        let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
-            ?? AVCaptureDevice.default(for: .video)
-        guard let device, let input = try? AVCaptureDeviceInput(device: device) else {
-            throw CaptureError.underlying("No usable back camera was found on this device.")
-        }
-        guard session.canAddInput(input) else {
-            throw CaptureError.underlying("The camera input could not be added to the session.")
-        }
-        session.addInput(input)
+            let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+                ?? AVCaptureDevice.default(for: .video)
+            guard let device, let input = try? AVCaptureDeviceInput(device: device) else {
+                throw CaptureError.underlying("No usable back camera was found on this device.")
+            }
+            guard session.canAddInput(input) else {
+                throw CaptureError.underlying("The camera input could not be added to the session.")
+            }
+            session.addInput(input)
 
-        guard session.canAddOutput(photoOutput) else {
-            throw CaptureError.underlying("The photo output could not be added to the session.")
+            guard session.canAddOutput(photoOutput) else {
+                throw CaptureError.underlying("The photo output could not be added to the session.")
+            }
+            session.addOutput(photoOutput)
+            photoOutput.maxPhotoQualityPrioritization = .quality
         }
-        session.addOutput(photoOutput)
-        photoOutput.maxPhotoQualityPrioritization = .quality
 
         await start()
     }
@@ -147,7 +149,7 @@ final class CameraCaptureService: NSObject, ObservableObject {
 
         // The codec is chosen by the user before capture; AVFoundation records the original
         // resolution and applies no pixel processing of its own beyond its standard pipeline.
-        let desired = fileType
+        let desired = fileType ?? self.fileType
 
         return try await withCheckedThrowingContinuation { continuation in
             let settings = AVCapturePhotoSettings()

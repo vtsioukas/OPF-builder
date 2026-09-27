@@ -63,7 +63,7 @@ intrinsics are `"user"`.
 ## 5. UID generation strategy (one strategy for the whole project)
 
 * **Cameras (basis for `uid64`)**: deterministic 64-bit FNV-1a hash of the raw image bytes,
-  masked to 63 bits (so every value is in `Int64.positive` and trivially `uid64`-legal).
+  masked to signed Int32 for compatibility with consumers using 32-bit integer parsers.
   Stable across re-exports, reproducible from the image alone, collision-checked.
 * `uid_generator = { vendor: "opfcapturebuilder", name: "fnv1a64_image_content", scope: "project", version: 1 }`
 * **Sensors**: FNV-1a of the sensor *identity signature* (manufacturer|model|lens|width×height|focal35mm).

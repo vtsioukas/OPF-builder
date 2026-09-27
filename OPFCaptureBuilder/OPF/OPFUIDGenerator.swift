@@ -6,8 +6,8 @@
 //
 //  The OPF specification requires every camera_list in a project to declare the
 //  same `uid_generator`, and discourages sequential UIDs. We therefore use a
-//  deterministic content hash so that the same photograph always yields the same
-//  camera UID across re-exports (and across projects that share the image).
+//  deterministic content hash so that the same photograph yields the same camera UID
+//  across re-exports. IDs are limited to signed Int32 for broad consumer compatibility.
 //
 //  `FNV1a64` is a public-domain algorithm; the same routine produces camera,
 //  sensor and capture identifiers so importer and OPF writer can never diverge.
@@ -18,16 +18,13 @@ import Foundation
 enum OPFUID {
     /// Identifier of the generator, written verbatim into every `camera_list`.
     static let vendor = "opfcapturebuilder"
-    static let name = "fnv1a64_image_content"
+    static let name = "fnv1a64_int32_image_content"
     static let version = 1
-    /// UIDs generated from image content are reproducible from the image alone, so
-    /// consumers may treat equal UIDs as equal photographs beyond this project.
-    static let scope = "global"
+    /// UIDs are guaranteed unique within an exported project.
+    static let scope = "project"
 
-    /// The 63-bit mask keeps every generated ID inside `Int64.positive`, which makes
-    /// it unconditionally valid for the OPF `uid64` type (0 ... 2^64 - 1) while
-    /// remaining safe to round-trip through Foundation's JSON and `Int`.
-    static let usableBits: UInt64 = 0x7FFF_FFFF_FFFF_FFFF
+    /// Signed Int32 IDs are a valid subset of the OPF `uid64` range.
+    static let usableBits: UInt64 = 0x0000_0000_7FFF_FFFF
 
     static func identifyCamera(rawImageBytesAt url: URL) throws -> UInt64 {
         let data = try Data(contentsOf: url, options: [.mappedIfSafe])

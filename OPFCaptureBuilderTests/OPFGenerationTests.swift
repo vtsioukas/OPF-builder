@@ -95,10 +95,32 @@ final class OPFGenerationTests: XCTestCase {
             guard case let .object(object) = camera, case let .uint64(id)? = object["id"] else {
                 return XCTFail("camera entry malformed")
             }
-            XCTAssertTrue(id <= UInt64(Int64.max), "IDs must fit in Int64.positive")
+            XCTAssertTrue(id <= UInt64(Int32.max), "IDs must fit in signed Int32")
             XCTAssertTrue(seen.insert(id).inserted, "camera ID \(id) duplicated")
         }
         XCTAssertEqual(seen.count, 12)
+    }
+
+    func testSensorAndCaptureUIDsFitSignedInt32() throws {
+        let result = OPFExporter.build(project: makeProject(imageCount: 12))
+        guard case let .object(root) = result.documentSet.inputCameras.value,
+              case let .array(sensors)? = root["sensors"],
+              case let .array(captures)? = root["captures"] else {
+            return XCTFail("input-cameras document shape unexpected")
+        }
+
+        for sensor in sensors {
+            guard case let .object(object) = sensor, case let .uint64(id)? = object["id"] else {
+                return XCTFail("sensor entry malformed")
+            }
+            XCTAssertLessThanOrEqual(id, UInt64(Int32.max))
+        }
+        for capture in captures {
+            guard case let .object(object) = capture, case let .uint64(id)? = object["id"] else {
+                return XCTFail("capture entry malformed")
+            }
+            XCTAssertLessThanOrEqual(id, UInt64(Int32.max))
+        }
     }
 
     func testCameraUIDIsStableAcrossExports() {
@@ -118,7 +140,7 @@ final class OPFGenerationTests: XCTestCase {
         }
         XCTAssertEqual(OPFUID.vendor, generator["vendor"]?.stringValue)
         XCTAssertEqual(OPFUID.name, generator["name"]?.stringValue)
-        XCTAssertEqual("global", generator["scope"]?.stringValue)
+        XCTAssertEqual("project", generator["scope"]?.stringValue)
     }
 
     // MARK: - Project graph

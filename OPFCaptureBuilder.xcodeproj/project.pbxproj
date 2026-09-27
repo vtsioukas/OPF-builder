@@ -3,552 +3,566 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
-	FA0000000000000000000014 /* PBXBuildFile */ = {
-		isa = PBXBuildFile;
-		fileRef = FA0000000000000000000012 /* Assets.xcassets */;
-	};
-	FA0000000000000000000015 /* PBXBuildFile */ = {
-		isa = PBXBuildFile;
-		fileRef = FA0000000000000000000013 /* OPFSchemas in Resources */;
-	};
-	FA0000000000000000000021 /* PBXContainerItemProxy */ = {
-		isa = PBXContainerItemProxy;
-		containerPortal = FA0000000000000000000001 /* Project object */;
-		proxyType = 1;
-		remoteGlobalIDString = FA0000000000000000000009;
-		remoteInfo = OPFCaptureBuilder;
-	};
-	FA0000000000000000000022 /* PBXContainerItemProxy */ = {
-		isa = PBXContainerItemProxy;
-		containerPortal = FA0000000000000000000001 /* Project object */;
-		proxyType = 1;
-		remoteGlobalIDString = FA0000000000000000000009;
-		remoteInfo = OPFCaptureBuilder;
-	};
-	FA000000000000000000000C /* PBXFileReference */ = {
-		isa = PBXFileReference;
-		explicitFileType = wrapper.application;
-		includeInIndex = 0;
-		path = OPFCaptureBuilder.app;
-		sourceTree = BUILT_PRODUCTS_DIR;
-	};
-	FA000000000000000000000D /* PBXFileReference */ = {
-		isa = PBXFileReference;
-		explicitFileType = wrapper.cfbundle;
-		includeInIndex = 0;
-		path = OPFCaptureBuilderTests.xctest;
-		sourceTree = BUILT_PRODUCTS_DIR;
-	};
-	FA000000000000000000000E /* PBXFileReference */ = {
-		isa = PBXFileReference;
-		explicitFileType = wrapper.cfbundle;
-		includeInIndex = 0;
-		path = OPFCaptureBuilderUITests.xctest;
-		sourceTree = BUILT_PRODUCTS_DIR;
-	};
-	FA0000000000000000000012 /* PBXFileReference */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = folder.assetcatalog;
-		path = Assets.xcassets;
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000013 /* PBXFileReference */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = folder;
-		path = OPFSchemas;
-		sourceTree = "<group>";
-	};
-	FA000000000000000000000F /* PBXFileSystemSynchronizedRootGroup */ = {
-		isa = PBXFileSystemSynchronizedRootGroup;
-		explicitFileTypes = {};
-		explicitFolders = ();
-		path = OPFCaptureBuilder;
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000010 /* PBXFileSystemSynchronizedRootGroup */ = {
-		isa = PBXFileSystemSynchronizedRootGroup;
-		explicitFileTypes = {};
-		explicitFolders = ();
-		path = OPFCaptureBuilderTests;
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000011 /* PBXFileSystemSynchronizedRootGroup */ = {
-		isa = PBXFileSystemSynchronizedRootGroup;
-		explicitFileTypes = {};
-		explicitFolders = ();
-		path = OPFCaptureBuilderUITests;
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000017 /* PBXFrameworksBuildPhase */ = {
-		isa = PBXFrameworksBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA000000000000000000001A /* PBXFrameworksBuildPhase */ = {
-		isa = PBXFrameworksBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA000000000000000000001D /* PBXFrameworksBuildPhase */ = {
-		isa = PBXFrameworksBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA0000000000000000000002 /* PBXGroup */ = {
-		isa = PBXGroup;
-		children = (
-					FA000000000000000000000F /* OPFCaptureBuilder */,
-					FA0000000000000000000010 /* OPFCaptureBuilderTests */,
-					FA0000000000000000000011 /* OPFCaptureBuilderUITests */,
-					FA0000000000000000000004 /* Resources */,
-					FA0000000000000000000003 /* Products */,
-				);
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000004 /* PBXGroup */ = {
-		isa = PBXGroup;
-		children = (
-					FA0000000000000000000012 /* Assets.xcassets */,
-					FA0000000000000000000013 /* OPFSchemas */,
-				);
-		path = Resources;
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000003 /* PBXGroup */ = {
-		isa = PBXGroup;
-		children = (
-					FA000000000000000000000C /* OPFCaptureBuilder.app */,
-					FA000000000000000000000D /* OPFCaptureBuilderTests.xctest */,
-					FA000000000000000000000E /* OPFCaptureBuilderUITests.xctest */,
-				);
-		name = Products;
-		sourceTree = "<group>";
-	};
-	FA0000000000000000000009 /* PBXNativeTarget */ = {
-		isa = PBXNativeTarget;
-		buildConfigurationList = FA0000000000000000000006 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilder" */;
-		buildPhases = (
-					FA0000000000000000000016 /* Sources */,
-					FA0000000000000000000017 /* Frameworks */,
-					FA0000000000000000000018 /* Resources */,
-				);
-		buildRules = ();
-		dependencies = ();
-		fileSystemSynchronizedGroups = (
-					FA000000000000000000000F /* OPFCaptureBuilder */,
-				);
-		name = OPFCaptureBuilder;
-		productName = OPFCaptureBuilder;
-		productReference = FA000000000000000000000C /* OPFCaptureBuilder.app */;
-		productType = "com.apple.product-type.application";
-	};
-	FA000000000000000000000A /* PBXNativeTarget */ = {
-		isa = PBXNativeTarget;
-		buildConfigurationList = FA0000000000000000000007 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilderTests" */;
-		buildPhases = (
-					FA0000000000000000000019 /* Sources */,
-					FA000000000000000000001A /* Frameworks */,
-					FA000000000000000000001B /* Resources */,
-				);
-		buildRules = ();
-		dependencies = (
-					FA000000000000000000001F /* PBXTargetDependency */,
-				);
-		fileSystemSynchronizedGroups = (
-					FA0000000000000000000010 /* OPFCaptureBuilderTests */,
-				);
-		name = OPFCaptureBuilderTests;
-		productName = OPFCaptureBuilderTests;
-		productReference = FA000000000000000000000D /* OPFCaptureBuilderTests.xctest */;
-		productType = "com.apple.product-type.bundle.unit-test";
-	};
-	FA000000000000000000000B /* PBXNativeTarget */ = {
-		isa = PBXNativeTarget;
-		buildConfigurationList = FA0000000000000000000008 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilderUITests" */;
-		buildPhases = (
-					FA000000000000000000001C /* Sources */,
-					FA000000000000000000001D /* Frameworks */,
-					FA000000000000000000001E /* Resources */,
-				);
-		buildRules = ();
-		dependencies = (
-					FA0000000000000000000020 /* PBXTargetDependency */,
-				);
-		fileSystemSynchronizedGroups = (
-					FA0000000000000000000011 /* OPFCaptureBuilderUITests */,
-				);
-		name = OPFCaptureBuilderUITests;
-		productName = OPFCaptureBuilderUITests;
-		productReference = FA000000000000000000000E /* OPFCaptureBuilderUITests.xctest */;
-		productType = "com.apple.product-type.bundle.ui-testing";
-	};
-	FA0000000000000000000001 /* PBXProject */ = {
-		isa = PBXProject;
-		attributes = { LastSwiftUpdateCheck = 1600; LastUpgradeCheck = 1600; TargetAttributes = { FA0000000000000000000009 = { CreatedOnToolsVersion = 16.0; }; FA000000000000000000000A = { CreatedOnToolsVersion = 16.0; TestTargetID = FA0000000000000000000009; }; FA000000000000000000000B = { CreatedOnToolsVersion = 16.0; TestTargetID = FA0000000000000000000009; }; }; };
-		buildConfigurationList = FA0000000000000000000005 /* Build configuration list for PBXProject "OPFCaptureBuilder" */;
-		compatibilityVersion = "Xcode 15.0";
-		developmentRegion = en;
-		hasScannedForEncodings = 0;
-		knownRegions = (
-					en,
-					Base,
-				);
-		mainGroup = FA0000000000000000000002;
-		minimizedProjectReferenceProxies = 1;
-		preferredProjectObjectVersion = 77;
-		productRefGroup = FA0000000000000000000003 /* Products */;
-		projectDirPath = "";
-		projectRoot = "";
-		targets = (
-					FA0000000000000000000009 /* OPFCaptureBuilder */,
-					FA000000000000000000000A /* OPFCaptureBuilderTests */,
-					FA000000000000000000000B /* OPFCaptureBuilderUITests */,
-				);
-	};
-	FA0000000000000000000018 /* PBXResourcesBuildPhase */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = (
-					FA0000000000000000000014 /* Assets.xcassets */,
-					FA0000000000000000000015 /* OPFSchemas in Resources */,
-				);
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA000000000000000000001B /* PBXResourcesBuildPhase */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA000000000000000000001E /* PBXResourcesBuildPhase */ = {
-		isa = PBXResourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA0000000000000000000016 /* PBXSourcesBuildPhase */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA0000000000000000000019 /* PBXSourcesBuildPhase */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA000000000000000000001C /* PBXSourcesBuildPhase */ = {
-		isa = PBXSourcesBuildPhase;
-		buildActionMask = 2147483647;
-		files = ();
-		runOnlyForDeploymentPostprocessing = 0;
-	};
-	FA000000000000000000001F /* PBXTargetDependency */ = {
-		isa = PBXTargetDependency;
-		target = FA0000000000000000000009 /* OPFCaptureBuilder */;
-		targetProxy = FA0000000000000000000021 /* PBXContainerItemProxy */;
-	};
-	FA0000000000000000000020 /* PBXTargetDependency */ = {
-		isa = PBXTargetDependency;
-		target = FA0000000000000000000009 /* OPFCaptureBuilder */;
-		targetProxy = FA0000000000000000000022 /* PBXContainerItemProxy */;
-	};
-	FA0000000000000000000023 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					ALWAYS_SEARCH_USER_PATHS = NO;
-					CLANG_ANALYZER_NONNULL = YES;
-					CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-					CLANG_ENABLE_MODULES = YES;
-					CLANG_ENABLE_OBJC_ARC = YES;
-					CLANG_ENABLE_OBJC_WEAK = YES;
-					CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-					CLANG_WARN_BOOL_CONVERSION = YES;
-					CLANG_WARN_COMMA = YES;
-					CLANG_WARN_CONSTANT_CONVERSION = YES;
-					CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-					CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-					CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-					CLANG_WARN_EMPTY_BODY = YES;
-					CLANG_WARN_ENUM_CONVERSION = YES;
-					CLANG_WARN_INFINITE_RECURSION = YES;
-					CLANG_WARN_INT_CONVERSION = YES;
-					CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-					CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-					CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-					CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-					CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-					CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-					CLANG_WARN_STRICT_PROTOTYPES = YES;
-					CLANG_WARN_SUSPICIOUS_MOVE = YES;
-					CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-					CLANG_WARN_UNREACHABLE_CODE = YES;
-					CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-					COPY_PHASE_STRIP = NO;
-					ENABLE_STRICT_OBJC_MSGSEND = YES;
-					ENABLE_USER_SCRIPT_SANDBOXING = YES;
-					GCC_C_LANGUAGE_STANDARD = gnu17;
-					GCC_NO_COMMON_BLOCKS = YES;
-					GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-					GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-					GCC_WARN_UNDECLARED_SELECTOR = YES;
-					GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-					GCC_WARN_UNUSED_FUNCTION = YES;
-					GCC_WARN_UNUSED_VARIABLE = YES;
-					IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-					LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-					MTL_FAST_MATH = YES;
-					SDKROOT = iphoneos;
-					buildTargetsInParallel = YES;
-					ENABLE_MODULE_VERIFIER = YES;
-					DEBUG_INFORMATION_FORMAT = dwarf;
-					ENABLE_TESTABILITY = YES;
-					GCC_DYNAMIC_NO_PIC = NO;
-					GCC_OPTIMIZATION_LEVEL = 0;
-					GCC_PREPROCESSOR_DEFINITIONS = (
-						"DEBUG=1",
-						"$(inherited)",
-					);
-					MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-					ONLY_ACTIVE_ARCH = YES;
-					SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-					SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+
+/* Begin PBXBuildFile section */
+		FA0000000000000000000014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0000000000000000000012 /* Assets.xcassets */; };
+		FA0000000000000000000015 /* OPFSchemas in Resources */ = {isa = PBXBuildFile; fileRef = FA0000000000000000000013 /* OPFSchemas */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA0000000000000000000021 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0000000000000000000009;
+			remoteInfo = OPFCaptureBuilder;
+		};
+		FA0000000000000000000022 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0000000000000000000009;
+			remoteInfo = OPFCaptureBuilder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FA000000000000000000000C /* OPFCaptureBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPFCaptureBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA000000000000000000000D /* OPFCaptureBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPFCaptureBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA000000000000000000000E /* OPFCaptureBuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPFCaptureBuilderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA0000000000000000000013 /* OPFSchemas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OPFSchemas; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FA000000000000000000000F /* OPFCaptureBuilder */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OPFCaptureBuilder; sourceTree = "<group>"; };
+		FA0000000000000000000010 /* OPFCaptureBuilderTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OPFCaptureBuilderTests; sourceTree = "<group>"; };
+		FA0000000000000000000011 /* OPFCaptureBuilderUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OPFCaptureBuilderUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA0000000000000000000017 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA000000000000000000001A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA000000000000000000001D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA0000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				FA000000000000000000000F /* OPFCaptureBuilder */,
+				FA0000000000000000000010 /* OPFCaptureBuilderTests */,
+				FA0000000000000000000011 /* OPFCaptureBuilderUITests */,
+				FA0000000000000000000004 /* Resources */,
+				FA0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA000000000000000000000C /* OPFCaptureBuilder.app */,
+				FA000000000000000000000D /* OPFCaptureBuilderTests.xctest */,
+				FA000000000000000000000E /* OPFCaptureBuilderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA0000000000000000000004 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA0000000000000000000012 /* Assets.xcassets */,
+				FA0000000000000000000013 /* OPFSchemas */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA0000000000000000000009 /* OPFCaptureBuilder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0000000000000000000006 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilder" */;
+			buildPhases = (
+				FA0000000000000000000016 /* Sources */,
+				FA0000000000000000000017 /* Frameworks */,
+				FA0000000000000000000018 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FA000000000000000000000F /* OPFCaptureBuilder */,
+			);
+			name = OPFCaptureBuilder;
+			productName = OPFCaptureBuilder;
+			productReference = FA000000000000000000000C /* OPFCaptureBuilder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA000000000000000000000A /* OPFCaptureBuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0000000000000000000007 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilderTests" */;
+			buildPhases = (
+				FA0000000000000000000019 /* Sources */,
+				FA000000000000000000001A /* Frameworks */,
+				FA000000000000000000001B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA000000000000000000001F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FA0000000000000000000010 /* OPFCaptureBuilderTests */,
+			);
+			name = OPFCaptureBuilderTests;
+			productName = OPFCaptureBuilderTests;
+			productReference = FA000000000000000000000D /* OPFCaptureBuilderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA000000000000000000000B /* OPFCaptureBuilderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0000000000000000000008 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilderUITests" */;
+			buildPhases = (
+				FA000000000000000000001C /* Sources */,
+				FA000000000000000000001D /* Frameworks */,
+				FA000000000000000000001E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA0000000000000000000020 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FA0000000000000000000011 /* OPFCaptureBuilderUITests */,
+			);
+			name = OPFCaptureBuilderUITests;
+			productName = OPFCaptureBuilderUITests;
+			productReference = FA000000000000000000000E /* OPFCaptureBuilderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					FA0000000000000000000009 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					FA000000000000000000000A = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = FA0000000000000000000009;
+					};
+					FA000000000000000000000B = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = FA0000000000000000000009;
+					};
 				};
-		name = Debug;
-	};
-	FA0000000000000000000025 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-					CODE_SIGN_STYLE = Automatic;
-					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_TEAM = "";
-					ENABLE_PREVIEWS = YES;
-					GENERATE_INFOPLIST_FILE = YES;
-					INFOPLIST_FILE = Config/Info.plist;
-					INFOPLIST_KEY_CFBundleDisplayName = "OPF Capture Builder";
-					INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-					INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-					INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
-					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-					LD_RUNPATH_SEARCH_PATHS = (
-						"$(inherited)",
-						"@executable_path/Frameworks",
-					);
-					MARKETING_VERSION = 1.0;
-					PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry;
-					PRODUCT_NAME = "$(TARGET_NAME)";
-					SWIFT_EMIT_LOC_STRINGS = YES;
-					SWIFT_VERSION = 5.0;
-					TARGETED_DEVICE_FAMILY = "1,2";
-				};
-		name = Debug;
-	};
-	FA0000000000000000000027 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					BUNDLE_LOADER = "$(TEST_HOST)";
-					CODE_SIGN_STYLE = Automatic;
-					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_TEAM = "";
-					GENERATE_INFOPLIST_FILE = YES;
-					IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-					MARKETING_VERSION = 1.0;
-					PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.tests;
-					PRODUCT_NAME = "$(TARGET_NAME)";
-					SWIFT_EMIT_LOC_STRINGS = NO;
-					SWIFT_VERSION = 5.0;
-					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OPFCaptureBuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OPFCaptureBuilder";
-				};
-		name = Debug;
-	};
-	FA0000000000000000000029 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					CODE_SIGN_STYLE = Automatic;
-					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_TEAM = "";
-					GENERATE_INFOPLIST_FILE = YES;
-					IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-					MARKETING_VERSION = 1.0;
-					PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.uitests;
-					PRODUCT_NAME = "$(TARGET_NAME)";
-					SWIFT_EMIT_LOC_STRINGS = NO;
-					SWIFT_VERSION = 5.0;
-					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_TARGET_NAME = OPFCaptureBuilder;
-				};
-		name = Debug;
-	};
-	FA0000000000000000000024 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					ALWAYS_SEARCH_USER_PATHS = NO;
-					CLANG_ANALYZER_NONNULL = YES;
-					CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-					CLANG_ENABLE_MODULES = YES;
-					CLANG_ENABLE_OBJC_ARC = YES;
-					CLANG_ENABLE_OBJC_WEAK = YES;
-					CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-					CLANG_WARN_BOOL_CONVERSION = YES;
-					CLANG_WARN_COMMA = YES;
-					CLANG_WARN_CONSTANT_CONVERSION = YES;
-					CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-					CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-					CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-					CLANG_WARN_EMPTY_BODY = YES;
-					CLANG_WARN_ENUM_CONVERSION = YES;
-					CLANG_WARN_INFINITE_RECURSION = YES;
-					CLANG_WARN_INT_CONVERSION = YES;
-					CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-					CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-					CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-					CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-					CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-					CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-					CLANG_WARN_STRICT_PROTOTYPES = YES;
-					CLANG_WARN_SUSPICIOUS_MOVE = YES;
-					CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-					CLANG_WARN_UNREACHABLE_CODE = YES;
-					CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-					COPY_PHASE_STRIP = NO;
-					ENABLE_STRICT_OBJC_MSGSEND = YES;
-					ENABLE_USER_SCRIPT_SANDBOXING = YES;
-					GCC_C_LANGUAGE_STANDARD = gnu17;
-					GCC_NO_COMMON_BLOCKS = YES;
-					GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-					GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-					GCC_WARN_UNDECLARED_SELECTOR = YES;
-					GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-					GCC_WARN_UNUSED_FUNCTION = YES;
-					GCC_WARN_UNUSED_VARIABLE = YES;
-					IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-					LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-					MTL_FAST_MATH = YES;
-					SDKROOT = iphoneos;
-					buildTargetsInParallel = YES;
-					ENABLE_MODULE_VERIFIER = YES;
-					DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-					ENABLE_NS_ASSERTIONS = NO;
-					MTL_ENABLE_DEBUG_INFO = NO;
-					SWIFT_COMPILATION_MODE = wholemodule;
-				};
-		name = Release;
-	};
-	FA0000000000000000000026 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-					CODE_SIGN_STYLE = Automatic;
-					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_TEAM = "";
-					ENABLE_PREVIEWS = YES;
-					GENERATE_INFOPLIST_FILE = YES;
-					INFOPLIST_FILE = Config/Info.plist;
-					INFOPLIST_KEY_CFBundleDisplayName = "OPF Capture Builder";
-					INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-					INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-					INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
-					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-					INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-					LD_RUNPATH_SEARCH_PATHS = (
-						"$(inherited)",
-						"@executable_path/Frameworks",
-					);
-					MARKETING_VERSION = 1.0;
-					PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry;
-					PRODUCT_NAME = "$(TARGET_NAME)";
-					SWIFT_EMIT_LOC_STRINGS = YES;
-					SWIFT_VERSION = 5.0;
-					TARGETED_DEVICE_FAMILY = "1,2";
-				};
-		name = Release;
-	};
-	FA0000000000000000000028 /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					BUNDLE_LOADER = "$(TEST_HOST)";
-					CODE_SIGN_STYLE = Automatic;
-					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_TEAM = "";
-					GENERATE_INFOPLIST_FILE = YES;
-					IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-					MARKETING_VERSION = 1.0;
-					PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.tests;
-					PRODUCT_NAME = "$(TARGET_NAME)";
-					SWIFT_EMIT_LOC_STRINGS = NO;
-					SWIFT_VERSION = 5.0;
-					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OPFCaptureBuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OPFCaptureBuilder";
-				};
-		name = Release;
-	};
-	FA000000000000000000002A /* XCBuildConfiguration */ = {
-		isa = XCBuildConfiguration;
-		buildSettings = {
-					CODE_SIGN_STYLE = Automatic;
-					CURRENT_PROJECT_VERSION = 1;
-					DEVELOPMENT_TEAM = "";
-					GENERATE_INFOPLIST_FILE = YES;
-					IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-					MARKETING_VERSION = 1.0;
-					PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.uitests;
-					PRODUCT_NAME = "$(TARGET_NAME)";
-					SWIFT_EMIT_LOC_STRINGS = NO;
-					SWIFT_VERSION = 5.0;
-					TARGETED_DEVICE_FAMILY = "1,2";
-					TEST_TARGET_NAME = OPFCaptureBuilder;
-				};
-		name = Release;
-	};
-	FA0000000000000000000005 /* XCConfigurationList */ = {
-		isa = XCConfigurationList;
-		buildConfigurations = (
-					FA0000000000000000000023 /* Debug */,
-					FA0000000000000000000024 /* Release */,
+			};
+			buildConfigurationList = FA0000000000000000000005 /* Build configuration list for PBXProject "OPFCaptureBuilder" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA0000000000000000000002;
+			minimizedProjectReferenceProxies = 1;
+			productRefGroup = FA0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA0000000000000000000009 /* OPFCaptureBuilder */,
+				FA000000000000000000000A /* OPFCaptureBuilderTests */,
+				FA000000000000000000000B /* OPFCaptureBuilderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA0000000000000000000018 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0000000000000000000014 /* Assets.xcassets in Resources */,
+				FA0000000000000000000015 /* OPFSchemas in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA000000000000000000001B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA000000000000000000001E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA0000000000000000000016 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0000000000000000000019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA000000000000000000001C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA000000000000000000001F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0000000000000000000009 /* OPFCaptureBuilder */;
+			targetProxy = FA0000000000000000000021 /* PBXContainerItemProxy */;
+		};
+		FA0000000000000000000020 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0000000000000000000009 /* OPFCaptureBuilder */;
+			targetProxy = FA0000000000000000000022 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FA0000000000000000000023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
 				);
-		defaultConfigurationIsVisible = 0;
-		defaultConfigurationName = Release;
-	};
-	FA0000000000000000000006 /* XCConfigurationList */ = {
-		isa = XCConfigurationList;
-		buildConfigurations = (
-					FA0000000000000000000025 /* Debug */,
-					FA0000000000000000000026 /* Release */,
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				buildTargetsInParallel = YES;
+			};
+			name = Debug;
+		};
+		FA0000000000000000000024 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				buildTargetsInParallel = YES;
+			};
+			name = Release;
+		};
+		FA0000000000000000000025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HE9CQTWFJT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Config/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OPF Capture Builder";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
 				);
-		defaultConfigurationIsVisible = 0;
-		defaultConfigurationName = Release;
-	};
-	FA0000000000000000000007 /* XCConfigurationList */ = {
-		isa = XCConfigurationList;
-		buildConfigurations = (
-					FA0000000000000000000027 /* Debug */,
-					FA0000000000000000000028 /* Release */,
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA0000000000000000000026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HE9CQTWFJT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Config/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OPF Capture Builder";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
 				);
-		defaultConfigurationIsVisible = 0;
-		defaultConfigurationName = Release;
-	};
-	FA0000000000000000000008 /* XCConfigurationList */ = {
-		isa = XCConfigurationList;
-		buildConfigurations = (
-					FA0000000000000000000029 /* Debug */,
-					FA000000000000000000002A /* Release */,
-				);
-		defaultConfigurationIsVisible = 0;
-		defaultConfigurationName = Release;
-	};
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA0000000000000000000027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OPFCaptureBuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OPFCaptureBuilder";
+			};
+			name = Debug;
+		};
+		FA0000000000000000000028 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OPFCaptureBuilder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OPFCaptureBuilder";
+			};
+			name = Release;
+		};
+		FA0000000000000000000029 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OPFCaptureBuilder;
+			};
+			name = Debug;
+		};
+		FA000000000000000000002A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OPFCaptureBuilder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA0000000000000000000005 /* Build configuration list for PBXProject "OPFCaptureBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0000000000000000000023 /* Debug */,
+				FA0000000000000000000024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0000000000000000000006 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0000000000000000000025 /* Debug */,
+				FA0000000000000000000026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0000000000000000000007 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0000000000000000000027 /* Debug */,
+				FA0000000000000000000028 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0000000000000000000008 /* Build configuration list for PBXNativeTarget "OPFCaptureBuilderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0000000000000000000029 /* Debug */,
+				FA000000000000000000002A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
 	};
 	rootObject = FA0000000000000000000001 /* Project object */;
 }
