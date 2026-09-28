@@ -33,6 +33,42 @@ struct ProjectDetailView: View {
                 Text("Overview")
             }
 
+            Section {
+                Stepper(value: $project.captureIntervalSeconds,
+                        in: CaptureInterval.fastestSeconds...CaptureInterval.slowestSeconds,
+                        step: 0.5) {
+                    LabeledContent("Interval", value: CaptureInterval.description(project.captureIntervalSeconds))
+                }
+                .accessibilityIdentifier("detail.interval.stepper")
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(CaptureInterval.presets, id: \.self) { value in
+                            let isSelected = abs(project.captureIntervalSeconds - value) < 0.001
+                            Button {
+                                project.captureIntervalSeconds = value
+                            } label: {
+                                Text(intervalChipLabel(value))
+                                    .font(.subheadline.weight(isSelected ? .semibold : .regular))
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
+                                    .background(isSelected ? AppTheme.accent : AppTheme.neutralSurface)
+                                    .foregroundStyle(isSelected ? Color.white : Color.primary)
+                                    .clipShape(Capsule())
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityAddTraits(isSelected ? [.isSelected] : [])
+                        }
+                    }
+                    .padding(.vertical, 2)
+                }
+                .accessibilityIdentifier("detail.interval.presets")
+            } header: {
+                Text("Capture interval")
+            } footer: {
+                Text("While a capture run is active, the live camera stores one full-resolution photograph every \(CaptureInterval.secondsLabel(project.captureIntervalSeconds)). Location and device attitude are recorded with every frame. Tap the shutter once to start and again to stop.")
+            }
+
             Section("Capture and import") {
                 NavigationLink {
                     CameraCaptureView(project: $project)
@@ -112,5 +148,10 @@ struct ProjectDetailView: View {
                 project = refreshed
             }
         }
+    }
+
+    private func intervalChipLabel(_ seconds: Double) -> String {
+        let text = seconds == seconds.rounded() ? String(Int(seconds)) : String(format: "%.1f", seconds)
+        return "\(text) s"
     }
 }

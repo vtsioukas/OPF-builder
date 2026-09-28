@@ -58,7 +58,15 @@ final class CameraCaptureService: NSObject, ObservableObject {
     @Published private(set) var isAuthorized = false
     @Published private(set) var isRunning = false
     @Published private(set) var isCapturing = false
+    @Published private(set) var isAutoCapturing = false
     @Published private(set) var lastErrorMessage: String?
+
+    /// One completed automatic capture, delivered on the main actor so the caller can store
+    /// the frame and the sensor readings that belong to it.
+    enum AutoCaptureOutcome {
+        case captured(data: Data, fileType: PhotoFileType)
+        case failed(String)
+    }
 
     /// The configured session, exposed so the preview layer can render it.
     nonisolated let session = AVCaptureSession()
@@ -163,6 +171,87 @@ final class CameraCaptureService: NSObject, ObservableObject {
     }
 
     private var activeDelegate: PhotoCaptureDelegate?
+
+    // MARK: - Automatic (interval) capture
+
+    #if os(iOS) && targetEnvironment(simulator)
+    /// A simulator has no camera hardware, so the automatic run needs a synthesised frame for
+    /// development and UI tests. This property is only compiled into a simulator build; on a
+    /// real device it does not exist. The bytes it generates are a JPEG solid colour.
+    var simulatorFrameProvider: ((Int) -> Data?)?
+    #endif
+
+    /// Starts capturing one photograph every `interval` seconds until `stopAutoCapture()` is
+    /// called. The first frame is taken after one interval, so the button that starts the run
+    /// never also takes a frame. Frames are delivered to `handler`; the task yields when the
+    /// device is still busy, so the preview stays responsive and no frames are queued.
+    func startAutoCapture(
+        every interval: Double,
+        fileType: PhotoFileType,
+        handler: @escaping @MainActor (AutoCaptureOutcome) -> Void
+    ) {
+        stopAutoCapture()
+        let seconds = CaptureInterval.clamped(interval)
+        self.fileType = fileType
+        isAutoCapturing = true
+
+        autoCaptureTask = Task { [weak self] in
+            var index = 0
+            // Deadline-based scheduling: the cadence stays close to the chosen interval even
+            // when a frame takes a moment to store, and it never bursts to catch up.
+            var nextDeadline = Date().addingTimeInterval(seconds)
+            while !Task.isCancelled {
+                let delay = nextDeadline.timeIntervalSinceNow
+                if delay > 0 {
+                    do {
+                        try await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+                    } catch {
+                        return
+                    }
+                }
+                nextDeadline = max(nextDeadline.addingTimeInterval(seconds),
+                                   Date().addingTimeInterval(seconds))
+
+                guard let self, !Task.isCancelled else { return }
+                guard !self.isCapturing else { continue } // device still busy: skip, never queue
+
+                #if os(iOS) && targetEnvironment(simulator)
+                if let provider = self.simulatorFrameProvider {
+                    if let data = provider(index) {
+                        index += 1
+                        self.autoCaptureCount += 1
+                        handler(.captured(data: data, fileType: fileType))
+                    }
+                    continue
+                }
+                #endif
+
+                do {
+                    let result = try await self.capturePhoto(wanting: fileType)
+                    guard !Task.isCancelled else { return }
+                    self.autoCaptureCount += 1
+                    handler(.captured(data: result.data, fileType: result.fileType))
+                } catch CameraCaptureService.CaptureError.captureInProgress {
+                    continue // a manual shot is in flight; skip this tick
+                } catch {
+                    handler(.failed(error.localizedDescription))
+                }
+            }
+        }
+    }
+
+    /// Stops the automatic run. Safe to call when no run is active.
+    func stopAutoCapture() {
+        autoCaptureTask?.cancel()
+        autoCaptureTask = nil
+        isAutoCapturing = false
+    }
+
+    /// Number of frames the current/last automatic run produced. The capture screen resets
+    /// this when a new run starts.
+    @Published var autoCaptureCount = 0
+
+    private var autoCaptureTask: Task<Void, Never>?
 }
 
 /// Bridges AVFoundation's delegate callbacks to a single async result.

@@ -41,6 +41,12 @@ struct CaptureProject: Identifiable, Codable, Hashable {
     /// User-supplied standard deviation (degrees) for the estimated orientation export.
     var orientationSigmaDeg: Double = 5.0
 
+    /// Seconds between automatic captures while a background capture run is active.
+    /// The interval is chosen on the project screen before the live camera is opened.
+    /// Writes are kept inside the legal range by the UI controls and by `CaptureInterval`;
+    /// decoded values are clamped in `init(from:)`.
+    var captureIntervalSeconds: Double = CaptureInterval.defaultSeconds
+
     /// All photographs belonging to the project, in capture/import order.
     var images: [ImageRecord] = []
 
@@ -59,6 +65,39 @@ struct CaptureProject: Identifiable, Codable, Hashable {
             createdAt: Date(),
             updatedAt: Date()
         )
+    }
+}
+
+extension CaptureProject {
+    /// Tolerant decoding. Swift's synthesised `Decodable` ignores property default values,
+    /// so a `project.json` written by an older build (or hand-edited) would throw on a
+    /// missing key and the project would silently disappear from the list. Decoding the
+    /// optional / defaulted fields with `decodeIfPresent` keeps every older project loadable
+    /// and clamps the interval on the way in.
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()
+        updatedAt = try container.decodeIfPresent(Date.self, forKey: .updatedAt) ?? createdAt
+
+        emitSceneReferenceFrame = try container.decodeIfPresent(Bool.self, forKey: .emitSceneReferenceFrame) ?? false
+        crsDefinition = try container.decodeIfPresent(String.self, forKey: .crsDefinition) ?? OPFConstants.defaultCRSDefinition
+        geoidHeight = try container.decodeIfPresent(Double.self, forKey: .geoidHeight)
+        exportAsJPEG = try container.decodeIfPresent(Bool.self, forKey: .exportAsJPEG) ?? false
+        acknowledgedAltitudeWarning = try container.decodeIfPresent(Bool.self, forKey: .acknowledgedAltitudeWarning) ?? false
+
+        exportEstimatedOrientation = try container.decodeIfPresent(Bool.self, forKey: .exportEstimatedOrientation) ?? false
+        orientationSigmaDeg = try container.decodeIfPresent(Double.self, forKey: .orientationSigmaDeg) ?? 5.0
+
+        let interval = try container.decodeIfPresent(Double.self, forKey: .captureIntervalSeconds) ?? CaptureInterval.defaultSeconds
+        captureIntervalSeconds = CaptureInterval.clamped(interval)
+
+        images = try container.decodeIfPresent([ImageRecord].self, forKey: .images) ?? []
+        manualIntrinsicsBySensorSignature = try container.decodeIfPresent([String: ManualIntrinsics].self,
+                                                                        forKey: .manualIntrinsicsBySensorSignature) ?? [:]
     }
 }
 
@@ -346,5 +385,42 @@ struct ValidationReport {
         lines.append("Validated against the official OPF JSON schemas (opf-spec schema/ directory).")
         lines.append("Note: GPS altitude is ellipsoidal height, not orthometric height.")
         return lines.joined(separator: "\n")
+    }
+}
+
+// MARK: - Capture interval
+
+/// One place that defines the legal range for the automatic capture interval, so the
+/// model, the capture screen and the settings UI can never disagree about it.
+enum CaptureInterval {
+    /// Default when a project is created: one photograph every three seconds.
+    static let defaultSeconds: Double = 3
+    /// Recommended values offered as quick choices in the UI.
+    static let presets: [Double] = [1, 2, 3, 5, 10, 15, 30]
+    /// Below this the device cannot finish storing a full-resolution frame before the next
+    /// one is due, so it is the floor of the valid range.
+    static let fastestSeconds: Double = 0.5
+    /// Upper bound; effectively "a very slow walk-through".
+    static let slowestSeconds: Double = 600
+
+    /// Returns `value` moved into `fastestSeconds ... slowestSeconds`, replacing non-finite
+    /// input with the default. Never returns NaN or infinity.
+    static func clamped(_ value: Double) -> Double {
+        guard value.isFinite else { return defaultSeconds }
+        return min(max(value, fastestSeconds), slowestSeconds)
+    }
+
+    /// A short human description, e.g. "1 photo every 3 s".
+    static func description(_ seconds: Double) -> String {
+        "1 photo every \(secondsLabel(seconds))"
+    }
+
+    /// Just the duration part, e.g. "3 s", for use inside a sentence.
+    static func secondsLabel(_ seconds: Double) -> String {
+        let clamped = clamped(seconds)
+        let text = clamped == clamped.rounded()
+            ? String(Int(clamped))
+            : String(format: "%.1f", clamped)
+        return "\(text) s"
     }
 }

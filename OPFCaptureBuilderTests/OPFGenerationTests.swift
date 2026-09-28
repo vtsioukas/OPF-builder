@@ -258,6 +258,73 @@ final class OPFGenerationTests: XCTestCase {
         let result = DeviceAttitudeMapping.yawPitchRollDegrees(quaternionWXYZ: [cos(half), 0, 0, sin(half)])
         XCTAssertEqual(result?.yaw ?? .nan, 90, accuracy: 1e-6)
     }
+
+    // MARK: - Capture interval
+
+    func testIntervalClampingIsTotal() {
+        XCTAssertEqual(CaptureInterval.clamped(0), CaptureInterval.fastestSeconds)
+        XCTAssertEqual(CaptureInterval.clamped(-10), CaptureInterval.fastestSeconds)
+        XCTAssertEqual(CaptureInterval.clamped(1e9), CaptureInterval.slowestSeconds)
+        XCTAssertEqual(CaptureInterval.clamped(.nan), CaptureInterval.defaultSeconds)
+        XCTAssertEqual(CaptureInterval.clamped(.infinity), CaptureInterval.defaultSeconds)
+        XCTAssertEqual(CaptureInterval.clamped(.nan).isFinite, true)
+        XCTAssertEqual(CaptureInterval.clamped(4.5), 4.5, "an in-range value is untouched")
+        XCTAssertEqual(CaptureInterval.description(3), "1 photo every 3 s")
+        XCTAssertEqual(CaptureInterval.secondsLabel(1.5), "1.5 s")
+    }
+
+    func testNewProjectStartsAtDefaultInterval() {
+        let project = CaptureProject.makeNew(name: "P", description: "")
+        XCTAssertEqual(project.captureIntervalSeconds, CaptureInterval.defaultSeconds)
+    }
+
+    func testIntervalSurvivesEncodingRoundTrip() throws {
+        var project = CaptureProject.makeNew(name: "P", description: "")
+        project.captureIntervalSeconds = 7.5
+        let data = try JSONEncoder().encode(project)
+        let decoded = try JSONDecoder().decode(CaptureProject.self, from: data)
+        XCTAssertEqual(decoded.captureIntervalSeconds, 7.5, accuracy: 1e-9)
+    }
+
+    /// A project written before the interval setting existed must still decode (the key is
+    /// simply absent) and must fall back to the default rather than failing to load.
+    func testLegacyProjectWithoutIntervalKeyDecodes() throws {
+        let legacy = """
+        {
+          "id": "\(UUID().uuidString)",
+          "name": "Legacy",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z"
+        }
+        """.data(using: .utf8)!
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let project = try decoder.decode(CaptureProject.self, from: legacy)
+        XCTAssertEqual(project.name, "Legacy")
+        XCTAssertEqual(project.captureIntervalSeconds, CaptureInterval.defaultSeconds)
+        XCTAssertEqual(project.description, "")
+        XCTAssertTrue(project.images.isEmpty)
+    }
+
+    /// A hand-edited file with an out-of-range interval is clamped on decode.
+    func testOutOfRangeIntervalIsClampedOnDecode() throws {
+        let json = """
+        {
+          "id": "\(UUID().uuidString)",
+          "name": "Silly",
+          "description": "",
+          "createdAt": "2024-01-01T00:00:00Z",
+          "updatedAt": "2024-01-01T00:00:00Z",
+          "captureIntervalSeconds": 0
+        }
+        """.data(using: .utf8)!
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let project = try decoder.decode(CaptureProject.self, from: json)
+        XCTAssertEqual(project.captureIntervalSeconds, CaptureInterval.fastestSeconds)
+    }
 }
 
 // MARK: - Test helpers

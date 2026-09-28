@@ -186,10 +186,19 @@ final class ProjectStore: ObservableObject {
     /// Stores already-materialised bytes (e.g. an AVFoundation photo or a transcoded JPEG).
     func storeImageData(_ data: Data, fileName: String, in project: CaptureProject) throws -> String {
         let folder = try imagesFolder(for: project)
-        try fileManager.createDirectory(at: folder, withIntermediateDirectories: true)
+        try Self.writeImageData(data, to: folder, fileName: fileName)
+        return fileName
+    }
+
+    /// Writes image bytes into an already-resolved images folder. Deliberately `nonisolated`
+    /// and static: the byte-for-byte write of a full-resolution frame is the expensive part,
+    /// so keeping it free of the main actor lets the capture screen write frames off the UI
+    /// thread (and therefore without stuttering the live preview), while the store's
+    /// actor-isolated `projects` list is still updated later, on the main actor.
+    nonisolated static func writeImageData(_ data: Data, to folder: URL, fileName: String) throws {
+        try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
         let destination = folder.appendingPathComponent(fileName)
         try data.write(to: destination, options: .atomic)
-        return fileName
     }
 
     func removeImageFile(named fileName: String, in project: CaptureProject) throws {

@@ -46,15 +46,21 @@ def main() -> int:
 
     try:
         document = openstep_plist.parse_file(PBXPROJ)
-        check(document.get("objectVersion") == "77", "objectVersion should be 77")
+        # Xcode 16 emits objectVersion 77 for the new synchronized-group format, but when it
+        # re-saves a project it writes 70 (the oldest version that still supports
+        # PBXFileSystemSynchronizedRootGroup). Both are valid; reject anything older.
+        version = int(document.get("objectVersion", "0"))
+        check(version >= 70, f"objectVersion {version} is older than the Xcode 15/16 format (>= 70)")
         check("objects" in document, "the parsed project has no objects dictionary")
         check("rootObject" in document, "the parsed project has no rootObject")
     except Exception as error:  # noqa: BLE001
         check(False, f"project.pbxproj does not parse: {error}")
-        document = {}
 
-    # 1. Every 24-char hex id that starts an object definition.
-    definitions = re.findall(r"^\t+([0-9A-F]{24}) /\* .* \*/ = \{", text, re.MULTILINE)
+    # 1. Every top-level object definition is a single-tab-indented `ID = {` line. Xcode omits
+    #    the trailing `/* comment */` after the id when it re-saves, so that part is optional;
+    #    nested entries (e.g. PBXProject.TargetAttributes) are indented deeper and must not
+    #    be counted as definitions.
+    definitions = re.findall(r"^\t\t([0-9A-F]{24})(?: /\* .* \*/)? = \{", text, re.MULTILINE)
     check(len(definitions) > 0, "no object definitions found in project.pbxproj")
     check(len(definitions) == len(set(definitions)), "duplicate object definitions detected")
 
@@ -77,7 +83,6 @@ def main() -> int:
 
     # 4. Build settings sanity.
     check("IPHONEOS_DEPLOYMENT_TARGET = 17.0;" in text, "deployment target is not 17.0")
-    check("objectVersion = 77;" in text, "objectVersion should be 77 for the Xcode 16 format")
     check("PRODUCT_BUNDLE_IDENTIFIER = com.opfcapturebuilder.photogrammetry;" in text,
           "app bundle identifier is not set as expected")
     check("INFOPLIST_FILE = Config/Info.plist;" in text, "Info.plist is not referenced")
